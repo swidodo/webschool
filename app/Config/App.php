@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://localhost/app_school';
+    public string $baseURL = 'https://eldiv.my.id/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login</title>
-        <link href="<?= base_url('css/styles.css');?>" rel="stylesheet" />
+        <link href="<?= base_url('assets/css/styles.css');?>" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/favicon.png');?>" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
@@ -89,6 +89,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?= base_url('js/scripts.js');?>"></script>
+        <script src="<?= base_url('assetst/js/scripts.js');?>"></script>
     </body>
 </html>

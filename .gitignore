@@ -10,7 +10,7 @@
 # OS X Thumbnails
 ._*
 #database
-app/Config/Database
+/app/config/database
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

@@ -73,7 +73,7 @@
                             </div>
                         </a>
                         <!-- Example Alert 2-->
-                        <a class="dropdown-item dropdown-notifications-item" href="<?= route('logout');?>">
+                        <a class="dropdown-item dropdown-notifications-item" href="<?= url_to('logout');?>">
                             <div class="dropdown-notifications-item-icon bg-info"><i data-feather="bar-chart"></i></div>
                             <div class="dropdown-notifications-item-content">
                                <div class="dropdown-notifications-item-content-text">Logout</div>

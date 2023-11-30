@@ -89,10 +89,10 @@ class GuruController extends BaseController
                     'active'         => 1,
                 ];
                 $userInsert = $this->user->insert($user);
-
+                $idUser = $this->user->find($this->user->getInsertID());
                 $groupUser = [
                     'group_id'  => $this->request->getVar('hak_akses'),
-                    'user_id'   => $this->user->getInsertID(),
+                    'user_id'   => $idUser['id'],
                 ];
                 $groupInsert = $this->groupuser->insert($groupUser);
                 
@@ -108,7 +108,7 @@ class GuruController extends BaseController
                         'jabatan'       => $this->request->getVar('jabatan'),
                         'mulai_kerja'   => $this->request->getVar('mulai_kerja'),
                         'id_sekolah'    => user()->id_sekolah,
-                        'user_id'       => $this->user->getInsertID(),
+                        'user_id'       => $idUser['id'],
                     ];
                 $guru = $this->guru->insert($data);
             $this->db->transComplete();

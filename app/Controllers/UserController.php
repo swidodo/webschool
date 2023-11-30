@@ -30,7 +30,7 @@ class UserController extends BaseController
                         ON b.user_id = a.id
                         LEFT JOIN sekolah c 
                         ON c.id = a.id_sekolah";
-            $where  = array('id_sekolah'=>user()->id_sekolah); 
+            $where  = array('c.id_sekolah'=>user()->id_sekolah); 
         }
         $isWhere = null;
         $search = array('b.nama_guru','a.username','c.nama_sekolah');

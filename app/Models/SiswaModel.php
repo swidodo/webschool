@@ -56,8 +56,15 @@ class SiswaModel extends Model
             'status'            => $input['status'],
             'tingkat_diterima'  => $input['tingkat_diterima'],
         ];
-		$this->siswa->where('id_kelas',$id);
+		$this->siswa->where('id_siswa',$id);
 		return $this->siswa->update($data);
 	}
+    public function cetak($id){
+        return $this->siswa->select('siswa.*,sekolah.*, kelas.kelas')
+                            ->join('sekolah','sekolah.id=siswa.id_sekolah','left')
+                            ->join('kelas','kelas.id_kelas=siswa.kelas_aktif','left')
+                            ->where('siswa.id_siswa',$id)
+                            ->get()->getRow();
+    }
 
 }

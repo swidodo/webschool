@@ -30,7 +30,8 @@ class GuruModel extends Model
                                     'status_pegawai',
                                     'jabatan',
                                     'mulai_kerja',
-                                    'user_id'
+                                    'user_id',
+                                    'id_sekolah'
                                 ];
     
     // Dates

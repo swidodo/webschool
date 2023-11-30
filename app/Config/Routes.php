@@ -11,6 +11,8 @@ $routes->get('sekolah', 'SekolahController::index');
 $routes->post('get_sekolah', 'SekolahController::get_data_sekolah');
 $routes->post('save-sekolah', 'SekolahController::save_data');
 $routes->post('edit-sekolah', 'SekolahController::edit');
+$routes->post('update-sekolah', 'SekolahController::update');
+$routes->post('get_tahun', 'SekolahController::get_tahun');
 
 // siswa
 $routes->get('siswa', 'SiswaController::index');
@@ -20,6 +22,7 @@ $routes->post('save_siswa', 'SiswaController::save_data_siswa');
 $routes->post('edit_siswa', 'SiswaController::edit_data_siswa');
 $routes->post('update_siswa', 'SiswaController::update_data_siswa');
 $routes->post('delete-siswa', 'SiswaController::delete_siswa');
+$routes->get('cetak-data-siswa', 'SiswaController::cetak_siswa');
 
 // kelas
 $routes->get('kelas', 'KelasController::index');
@@ -106,3 +109,39 @@ $routes->post('delete-beban-mengajar','BebanMengajarController::destroy');
 
 // setting Auth 
 $routes->post('ubah-password','UserController::change_password');
+// group access
+$routes->get('group-access','GroupAccessController::index');
+$routes->post('data-group-access','GroupAccessController::get_data');
+$routes->post('save_grou_access','GroupAccessController::store');
+$routes->post('edit-group-access','GroupAccessController::edit');
+$routes->post('update-group-access','GroupAccessController::update');
+$routes->post('delete-group-access','GroupAccessController::destroy');
+// permission
+$routes->get('permission','AuthPermissionController::index');
+$routes->post('data-permission','AuthPermissionController::get_data');
+$routes->post('save-permission','AuthPermissionController::store');
+$routes->post('edit-permission','AuthPermissionController::edit');
+$routes->post('update-permission','AuthPermissionController::update');
+$routes->post('delete-permission','AuthPermissionController::destroy');
+$routes->post('data-permission-edit','AuthPermissionController::get_group_permission');
+// Auth user group
+$routes->get('group-user','UserGroupController::index');
+$routes->post('data-group-user','UserGroupController::get_data');
+$routes->post('get_user_bySekolah','UserGroupController::get_data_guru');
+$routes->post('save-group-user','UserGroupController::store');
+$routes->post('edit-group-user','UserGroupController::edit');
+$routes->post('update-group-user','UserGroupController::update');
+$routes->post('delete-group-user','UserGroupController::destroy');
+
+// user
+$routes->get('user','UserController::index');
+$routes->post('get-user','UserController::get_user');
+$routes->post('delete-user','UserController::destroy');
+
+// Rapor
+$routes->get('rapor','RaporController::index');
+$routes->post('get-data-rapor','RaporController::get_data_rapor');
+$routes->get('cover','RaporController::get_data_kelas');
+$routes->get('identitas','RaporController::get_data_kelas');
+
+

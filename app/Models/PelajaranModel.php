@@ -14,18 +14,19 @@ class PelajaranModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['nama_pelajaran',
-    'alias_pelajaran',
-    'jenis_pelajaran',
-    'singat',
-    'kelompok',
-    'jurusan',
-    'urutan',
-    'beban',
-    'kkm',
-    'status',
-    'pai',
-    'kurukulum',
-    'semester' ];
+                                    'alias_pelajaran',
+                                    'jenis_pelajaran',
+                                    'singat',
+                                    'kelompok',
+                                    'jurusan',
+                                    'urutan',
+                                    'beban',
+                                    'kkm',
+                                    'status',
+                                    'pai',
+                                    'kurukulum',
+                                    'semester',
+                                    'id_sekolah' ];
 
     // Dates
     protected $useTimestamps = false;

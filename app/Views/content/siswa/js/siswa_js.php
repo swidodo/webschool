@@ -2,8 +2,14 @@
 <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.6/datatables.min.js"></script>
 <script src="<?= base_url('assets/js/sweetalert.all.js');?>"></script>
 <script>
+      function hanyaAngka(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                return false;
+            return true;
+        }
     $(document).ready(function(){
-       
     var table = $('#TblDataSiswa').DataTable({
                     processing: true,
                     serverSide: true,
@@ -44,7 +50,7 @@
                             { data: "id_siswa", 
                             "render": 
                                 function( data, type, row, meta ) {
-                                    return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 btn-sm edit-siswa" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-primary btn-sm cetak-siswa me-1" data-id="'+data+'"><i class="fa fa-print"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm delete-siswa" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
+                                    return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 btn-sm edit-siswa" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-primary btn-sm cetak-data-siswa me-1" data-id="'+data+'"><i class="fa fa-print"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm delete-siswa" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
                                 },
                                 className : "dt-center",
                             },
@@ -228,6 +234,12 @@
                 alert('Terjadi Kesalahan !');
             }
         })
+    })
+    $(document).on('click','.cetak-data-siswa', function(e){
+        e.preventDefault()
+        var id = $(this).attr('data-id');
+        var url ='<?= base_url();?>'+` cetak-data-siswa?id=`+id;
+        window.open(url,'_blank'); 
     })
 })
 

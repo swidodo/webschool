@@ -200,7 +200,7 @@ class PelajaranController extends BaseController
         // jika memakai IS NULL pada where sql
         $isWhere = null;
         // $isWhere = 'artikel.deleted_at IS NULL';
-        $search = array('tp_ke','kode_tp','tujuan_pembelajaran','materi');
+        $search = array('a.tp_ke','a.kode_tp','a.tujuan_pembelajaran','a.materi');
         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
     }
     public function store_tujuan_pembelajaran(){

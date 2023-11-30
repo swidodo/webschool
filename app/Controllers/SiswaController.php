@@ -22,8 +22,8 @@ class SiswaController extends BaseController
     public function get_data_siswa(){
          $query = "SELECT a.*,b.kelas,b.fase from siswa a 
                     left join kelas b on b.id_kelas=a.id_kelas";
-         $where  = array('id_sekolah' => user()->id_sekolah);
-         $where  = null; 
+         $where  = array('a.id_sekolah' => user()->id_sekolah);
+        //  $where  = null; 
          // jika memakai IS NULL pada where sql
          $isWhere = null;
          // $isWhere = 'artikel.deleted_at IS NULL';
@@ -64,6 +64,7 @@ class SiswaController extends BaseController
             'kerja_wali'        => $this->request->getPost('kerja_wali'),
             'status'            => $this->request->getPost('status'),
             'tingkat_diterima'  => $this->request->getPost('tingkat_diterima'),
+            'id_sekolah'        => user()->id_sekolah,
         ];
         $save = $this->siswa->insert_siswa($data);
         if ($save){
@@ -123,5 +124,11 @@ class SiswaController extends BaseController
             ];
         }
         return $this->response->setJSON($res);
+    }
+    public function cetak_siswa(){
+        $id = $this->request->getVar('id');
+        $data['siswa'] = $this->siswa->cetak($id);
+        // dd($data['siswa']);
+        return view('content/siswa/cetak_siswa',$data);
     }
 }

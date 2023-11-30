@@ -42,8 +42,9 @@ class GuruController extends BaseController
         
     }
     public function get_pelajaran(){
+        $auth = ['Superadmin'];
         $data['mapel']      = $this->pelajaran->orderBy('nama_pelajaran','ASC')->findAll();
-        $data['auth_group'] = $this->authgroup->orderBy('name','ASC')->findAll();
+        $data['auth_group'] = $this->authgroup->whereNotIn('name',$auth)->orderBy('name','ASC')->findAll();
         return $this->response->setJSON($data);
     }
     public function store(){

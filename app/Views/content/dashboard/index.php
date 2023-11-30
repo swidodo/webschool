@@ -4,17 +4,14 @@
         <header class="py-4 mb-2 bg-gradient-primary-to-secondary">
             <div class="container-xl px-4">
                 <div class="text-center">
-                    <h1 class="text-white">Welcome to  <?= $sekolah->nama_sekolah;?></h1>
-                    <p class="lead mb-0 text-white-50"><?= $sekolah->alamat;?></p>
+                    <h4 class="text-white">DASHBOARD <?= strtoupper($sekolah['nama_sekolah'])?></h4>
+                    <p class="lead mb-0 text-white-50"><?= $sekolah['alamat_sekolah'];?></p>
                 </div>
             </div>
         </header>
         <!-- Main page content-->
         <div class="container-xl px-4">
-            <h2 class="mt-5 mb-0">Dashboards</h2>
-            <hr class="mt-0 mb-4" />
             <div class="row">
-                
                 <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
                     <div id="myChart" class="chart--container">
                     </div>

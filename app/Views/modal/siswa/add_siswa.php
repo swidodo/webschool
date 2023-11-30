@@ -15,7 +15,7 @@
                                 <form id="SiswaFormAdd">
                                     <div class="row">
                                         <div class="form-floating mb-3 col-md-6">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Nama Siswa" name="nama_siswa">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Nama Siswa" name="nama_siswa" required>
                                             <label for="floatingInput">Nama Siswa</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
@@ -23,15 +23,15 @@
                                             <label for="floatingInput">NIS</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <input type="text" class="form-control form-control-sm" placeholder="NISN" name="nisn">
+                                            <input type="text" class="form-control form-control-sm" placeholder="NISN" onkeypress="return hanyaAngka(event)" name="nisn">
                                             <label for="floatingInput">NISN</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Tempat Lahir" name="tempat_lahir">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Tempat Lahir" name="tempat_lahir" required>
                                             <label for="floatingInput">Tempat Lahir</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <input type="date" class="form-control form-control-sm" placeholder="Tanggal Lahir" name="tgl_lahir">
+                                            <input type="date" class="form-control form-control-sm" placeholder="Tanggal Lahir" name="tgl_lahir" required>
                                             <label for="floatingInput">Tanggal Lahir</label>
                                         </div>
                                         <div class="ms-1 mb-3 col-md-3 row">
@@ -51,7 +51,7 @@
 
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Agama" name="agama">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Agama" name="agama" required>
                                             <label for="floatingInput">Agama</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
@@ -67,7 +67,7 @@
                                             <label for="floatingInput">Alamat Peserta Didik</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <input type="text" class="form-control form-control-sm" placeholder="No Hp Peserta Didik" name="no_hp_siswa">
+                                            <input type="text" class="form-control form-control-sm" placeholder="No Hp Peserta Didik" name="no_hp_siswa" onkeypress="return hanyaAngka(event)">
                                             <label for="floatingInput">No Hp Peserta Didik</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
@@ -125,7 +125,8 @@
                                             <label for="floatingInput">Kerja Wali</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <select class="form-control form-control-sm" name="status" placeholder="Status">
+                                            <select class="form-control form-control-sm" name="status" placeholder="Status" required>
+                                                <option value="">-- pilih --</option>
                                                 <option value="1">Aktif</option>
                                                 <option value="2">Keluar</option>
                                                 <option value="3">Alumni</option>
@@ -133,7 +134,8 @@
                                             <label for="floatingInput">Status</label>
                                         </div>
                                         <div class="form-floating mb-3 col-md-3">
-                                            <select class="form-control form-control-sm" name="tingkat_diterima" placeholder="Tingkat Diterima">
+                                            <select class="form-control form-control-sm" name="tingkat_diterima" placeholder="Tingkat Diterima" required>
+                                                <option value="">-- pilih --</option>
                                                 <option value="10">10</option>
                                                 <option value="11">11</option>
                                                 <option value="12">12</option>

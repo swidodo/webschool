@@ -18,7 +18,7 @@
                     ajax : {
                             "url" : 'data-tujuan-mapel',
                             "type" : 'POST',
-                            "data" :{id_cp : id_cp, id_pel,id_pel },
+                            "data" :{id_cp : id_cp, id_pel:id_pel },
                             },
                     "columns": [
                             {   data: 'id_tp',"sortable": false, render: function (data, type, row, meta) {

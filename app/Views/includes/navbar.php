@@ -3,10 +3,10 @@
             <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
             <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"><?php $session = \Config\Services::session(); echo $session->sekolah;?></a>
             <!-- Navbar Items-->
-            <div class="w-100"><marque>data data data data data </marque></div>
+            <div class="w-100"></div>
             <ul class="navbar-nav align-items-center ms-auto">
                 <!-- Documentation Dropdown-->
-                <li class="nav-item dropdown no-caret d-none d-md-block me-3">
+                <!-- <li class="nav-item dropdown no-caret d-none d-md-block me-3">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="fw-500">Documentation</div>
                         <i class="fas fa-chevron-right dropdown-arrow"></i>
@@ -36,7 +36,7 @@
                             </div>
                         </a>
                     </div>
-                </li>
+                </li> -->
                 <!-- Navbar Search Dropdown-->
                 <!-- * * Note: * * Visible only below the lg breakpoint-->
                 <li class="nav-item dropdown no-caret me-3 d-lg-none">
@@ -63,35 +63,22 @@
                         <a class="dropdown-item dropdown-notifications-item" href="#!">
                             <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 29, 2021</div>
-                                <div class="dropdown-notifications-item-content-text">This is an alert message. It's nothing serious, but it requires your attention.</div>
+                                <div class="dropdown-notifications-item-content-text">my profile</div>
+                            </div>
+                        </a>
+                        <a class="dropdown-item dropdown-notifications-item" href="#!">
+                            <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
+                            <div class="dropdown-notifications-item-content">
+                                <div class="dropdown-notifications-item-content-text">reset password</div>
                             </div>
                         </a>
                         <!-- Example Alert 2-->
                         <a class="dropdown-item dropdown-notifications-item" href="#!">
                             <div class="dropdown-notifications-item-icon bg-info"><i data-feather="bar-chart"></i></div>
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 22, 2021</div>
-                                <div class="dropdown-notifications-item-content-text">A new monthly report is ready. Click here to view!</div>
+                               <div class="dropdown-notifications-item-content-text">Logout</div>
                             </div>
                         </a>
-                        <!-- Example Alert 3-->
-                        <a class="dropdown-item dropdown-notifications-item" href="#!">
-                            <div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 8, 2021</div>
-                                <div class="dropdown-notifications-item-content-text">Critical system failure, systems shutting down.</div>
-                            </div>
-                        </a>
-                        <!-- Example Alert 4-->
-                        <a class="dropdown-item dropdown-notifications-item" href="#!">
-                            <div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 2, 2021</div>
-                                <div class="dropdown-notifications-item-content-text">New user request. Woody has requested access to the organization.</div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
                     </div>
                 </li>
               

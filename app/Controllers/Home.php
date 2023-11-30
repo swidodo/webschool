@@ -18,7 +18,6 @@ class Home extends BaseController
             $session->set('error', 'Sekolah tidak terdaftar!');
             return redirect('logout');
         }else{
-            dd();
             if($data['sekolah']['aktif'] == 'N'){
                 return redirect('logout');
             }else{

@@ -87,6 +87,8 @@ class GuruController extends BaseController
                     'username'       => $this->request->getVar('username'),
                     'password_hash'  => password_hash(base64_encode(hash('sha384',$password, true)), PASSWORD_BCRYPT),
                     'active'         => 1,
+                    'id_sekolah'     => user()->id_sekolah,
+                    'initial'        => 'guru',
                 ];
                 $userInsert = $this->user->insert($user);
                 $idUser = $this->user->find($this->user->getInsertID());

@@ -13,12 +13,11 @@ class Home extends BaseController
         $session = \Config\Services::session();
         
         $data['page'] = 'Dashboard';
-        $data['sekolah'] = $this->sekolah->find(user()->id_sekolah);
+        $data['sekolah'] = $this->sekolah->where('id',user()->id_sekolah)->first();
         if($data['sekolah'] == null){
             $session->set('error', 'Sekolah tidak terdaftar!');
             return redirect('logout');
         }else{
-            dd($data['sekolah']['aktif']);
             if($data['sekolah']['aktif'] == 'N'){
                 return redirect('logout');
             }else{

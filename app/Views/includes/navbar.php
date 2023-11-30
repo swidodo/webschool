@@ -57,7 +57,7 @@
                     <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
                         <h6 class="dropdown-header dropdown-notifications-header">
                             <i class="me-2" data-feather="bell"></i>
-                            Alerts Center
+                            SETTING
                         </h6>
                         <!-- Example Alert 1-->
                         <a class="dropdown-item dropdown-notifications-item" href="#!">
@@ -73,7 +73,7 @@
                             </div>
                         </a>
                         <!-- Example Alert 2-->
-                        <a class="dropdown-item dropdown-notifications-item" href="#!">
+                        <a class="dropdown-item dropdown-notifications-item" href="<?= route('logout');?>">
                             <div class="dropdown-notifications-item-icon bg-info"><i data-feather="bar-chart"></i></div>
                             <div class="dropdown-notifications-item-content">
                                <div class="dropdown-notifications-item-content-text">Logout</div>

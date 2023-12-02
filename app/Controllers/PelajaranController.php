@@ -7,15 +7,21 @@ use App\Models\PelajaranModel;
 use App\Models\CapaianPembelajaranModel;
 use App\Models\TujuanPembelajaranModel;
 use App\Libraries\DataTables;
+use App\Models\GuruModel;
 
 class PelajaranController extends BaseController
 {
+    protected $guru;
     protected $mapel;
+    protected $capaian;
+    protected $tujuan;
+    protected $DataTables;
     public function __construct(){
-        $this->mapel = new PelajaranModel();
-        $this->capaian = new CapaianPembelajaranModel();
-        $this->tujuan  = new TujuanPembelajaranModel();
-        $this->DataTables = new DataTables();
+        $this->guru         = new GuruModel();
+        $this->mapel        = new PelajaranModel();
+        $this->capaian      = new CapaianPembelajaranModel();
+        $this->tujuan       = new TujuanPembelajaranModel();
+        $this->DataTables   = new DataTables();
     }
     public function index()
     {
@@ -23,15 +29,29 @@ class PelajaranController extends BaseController
         return  view('content/mapel/index',$data);
     }
     public function get_data_mapel(){
-        $query = "select * from setup_pelajaran";
-         // $where  = array('nama_kategori' => 'Tutorial');
-         $where  = array('id_sekolah'=> user()->id_sekolah); 
-         // jika memakai IS NULL pada where sql
-         $isWhere = null;
-         // $isWhere = 'artikel.deleted_at IS NULL';
-         $search = array('nama_pelajaran');
-         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
-        
+        if (in_groups('Guru') || in_groups('guru') || in_groups('Wali Kelas') || in_groups('Wali kelas') || in_groups('wali kelas')):
+            $idguru = $this->guru->where('user_id',user()->id)->first();
+            if ($idguru !=null){
+                $id_guru = $idguru['id_guru'];
+            }else{
+                $id_guru = null;
+            }
+            $query = "SELECT * FROM setup_pelajaran a
+                      LEFT JOIN tbl_jadwal b
+                      ON b.id_pelajaran = a.id_pelajaran
+                      LEFT JOIN data_guru c
+                      ON c.id_guru = b.id_guru";
+            $where  = array('a.id_sekolah'=> user()->id_sekolah,'c.id_guru'=>$id_guru); 
+            $isWhere = null;
+            $search = array('nama_pelajaran');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        else :
+            $query = "select * from setup_pelajaran";
+            $where  = array('id_sekolah'=> user()->id_sekolah); 
+            $isWhere = null;
+            $search = array('nama_pelajaran');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        endif;        
     }
     public function store(){
         $data = [

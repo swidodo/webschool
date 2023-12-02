@@ -22,12 +22,10 @@ class TitiMangsaController extends BaseController
         return view('content/titi_mangsa/index',$data);
     }
     public function get_data_titi_mangsa(){
-        $query = "select * from setup_waktu ";
+        $query = "select * from setup_waktu";
          // $where  = array('nama_kategori' => 'Tutorial');
          $where  =  array('id_sekolah' => user()->id_sekolah); 
-         // jika memakai IS NULL pada where sql
          $isWhere = null;
-         // $isWhere = 'artikel.deleted_at IS NULL';
          $search = array('tahun_pelajaran');
          echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
     }

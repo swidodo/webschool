@@ -1,7 +1,7 @@
 <?php $authorize = service('authorization');?>
 <div id="layoutSidenav_nav">
     <nav class="sidenav shadow-right sidenav-light">
-        <div class="sidenav-menu">
+        <div class="sidenav-menu h-100">
             <div class="nav accordion bg-dark" id="accordionSidenav">
                 <!-- Sidenav Menu Heading (Account)-->
                 <!-- * * Note: * * Visible only on and above the sm breakpoint-->
@@ -83,18 +83,18 @@
                 <?php endif;?>
                 <div class="sidenav-menu-heading text-small">Extrakulikuler</div>
                 <!-- Sidenav Link (Charts)-->
-                <?php if(has_permission('ekstrakurikuler')): ?>
+                <?php //if(has_permission('ekstrakurikuler')): ?>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('get-ekskul')?>">
                     <div class="nav-link-icon"><i data-feather="box"></i></div>
                     Ekstrakurikuler
                 </a>
-                <?php endif;?>
-                <?php if(has_permission('nilai ekstrakurikuler')): ?>
+                <?php //endif;?>
+                <?php //if(has_permission('nilai ekstrakurikuler')): ?>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('get-nilai-ekskul')?>">
                     <div class="nav-link-icon"><i data-feather="send"></i></div>
                     Nilai Ekstrakurikuler
                 </a>
-                <?php endif;?>
+                <?php //endif;?>
                 <?php if(has_permission('dimensi')): ?>
                 <div class="sidenav-menu-heading text-small">Profile P5</div>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('reset-password')?>">
@@ -152,19 +152,12 @@
                     User Group
                 </a>
                 <?php endif;?>
-                <?php //if(has_permission('user group')): ?>
+                <?php if(has_permission('users')): ?>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('user')?>">
                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                     User
                 </a>
-                <?php //endif;?>
-            </div>
-        </div>
-        <!-- Sidenav Footer-->
-        <div class="sidenav-footer">
-            <div class="sidenav-footer-content">
-                <div class="sidenav-footer-subtitle">Logged in as:</div>
-                <div class="sidenav-footer-title"><?= user()->username;?></div>
+                <?php endif;?>
             </div>
         </div>
     </nav>

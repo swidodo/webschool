@@ -32,13 +32,13 @@ class GuruController extends BaseController
         $query = "SELECT a.*,d.name as group_name,b.username as userlog,b.email as emailuser from data_guru a left join users b ON a.user_id = b.id 
         LEFT JOIN auth_groups_users c ON b.id = c.user_id 
         LEFT JOIN auth_groups d ON c.group_id = d.id ";
-         // $where  = array('nama_kategori' => 'Tutorial');
-         $where  =  array('a.id_sekolah' => user()->id_sekolah); 
-         // jika memakai IS NULL pada where sql
-         $isWhere = null;
-         // $isWhere = 'artikel.deleted_at IS NULL';
-         $search = array('nama_guru');
-         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        $where  =  array('a.id_sekolah' => user()->id_sekolah); 
+        if (in_groups('Guru') || in_groups('guru') || in_groups('Wali Kelas') || in_groups('Wali kelas') || in_groups('wali kelas')){
+            $where  =  array('a.user_id' => user()->id,'a.id_sekolah' => user()->id_sekolah); 
+        }
+        $isWhere = null;
+        $search = array('nama_guru');
+        echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
         
     }
     public function get_pelajaran(){

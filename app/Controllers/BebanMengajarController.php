@@ -26,19 +26,38 @@ class BebanMengajarController extends BaseController
         return view('content/beban_mengajar/index',$data);
     }
     public function get_data_beban(){
-        $query = "SELECT a.*,b.nama_guru,c.nama_pelajaran,d.kelas from tbl_jadwal a
-                  LEFT JOIN data_guru b ON b.id_guru = a.id_guru
-                  LEFT JOIN setup_pelajaran c ON c.id_pelajaran = a.id_pelajaran
-                  LEFT JOIN kelas d ON d.id_kelas = a.id_kelas ";
-         // $where  = array('nama_kategori' => 'Tutorial');
-         $where  =  array('b.id_sekolah' => user()->id_sekolah); 
-         $where  =  array('d.id_sekolah' => user()->id_sekolah); 
-         // jika memakai IS NULL pada where sql
-         $isWhere = null;
-         // $isWhere = 'artikel.deleted_at IS NULL';
-         $search = array('nama_pelajaran','nama_guru');
-         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
-        
+        if (in_groups('Guru') || in_groups('guru') || in_groups('Wali Kelas') || in_groups('Wali kelas') || in_groups('wali kelas')):
+            $idguru = $this->guru->where('user_id',user()->id)->first();
+            if ($idguru !=null){
+                $id_guru = $idguru['id_guru'];
+            }else{
+                $id_guru = null;
+            }
+            $query = "SELECT DISTINCT a.*,b.nama_guru,
+                                        c.nama_pelajaran,
+                                        d.kelas 
+                        FROM tbl_jadwal a
+                        LEFT JOIN data_guru b ON b.id_guru = a.id_guru
+                        LEFT JOIN setup_pelajaran c ON c.id_pelajaran = a.id_pelajaran
+                        LEFT JOIN kelas d ON d.id_kelas = a.id_kelas";
+            $where  =  array('b.id_guru' => $id_guru,'b.id_sekolah' => user()->id_sekolah,'d.id_sekolah'=>user()->id_sekolah); 
+            $isWhere = null;
+            $search = array('nama_pelajaran','nama_guru');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        else :
+            $query = "SELECT DISTINCT a.*,b.nama_guru,
+                                        c.nama_pelajaran,
+                                        d.kelas 
+                        FROM tbl_jadwal a
+                        LEFT JOIN data_guru b ON b.id_guru = a.id_guru
+                        LEFT JOIN setup_pelajaran c ON c.id_pelajaran = a.id_pelajaran
+                        LEFT JOIN kelas d ON d.id_kelas = a.id_kelas";
+            $where  =  array('d.id_sekolah' => user()->id_sekolah); 
+            $isWhere = null;
+            $search = array('nama_pelajaran','nama_guru');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        endif;
+       
     }
     public function create(){
         $data['mapel'] = $this->mapel->where('id_sekolah',user()->id_sekolah)->get()->getResult();

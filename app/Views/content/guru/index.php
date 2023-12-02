@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover table-sm" id="TblDataGuru">
+                    <table class="table table-bordered table-striped table-hover table-sm w-100" id="TblDataGuru">
                         <thead>
                             <th>No</th>
                             <th>Nama Guru</th>

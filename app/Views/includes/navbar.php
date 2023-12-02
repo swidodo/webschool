@@ -51,33 +51,25 @@
                         </form>
                     </div>
                 </li>
-                <!-- Alerts Dropdown-->
-                <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
-                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="bell"></i></a>
-                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
-                        <h6 class="dropdown-header dropdown-notifications-header">
-                            <i class="me-2" data-feather="bell"></i>
-                            SETTING
+                <!-- User Dropdown-->
+                <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="assets/img/illustrations/profiles/profile-1.png" /></a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                        <h6 class="dropdown-header d-flex align-items-center">
+                            <img class="dropdown-user-img" src="assets/img/illustrations/profiles/profile-1.png" />
+                            <div class="dropdown-user-details">
+                                <div class="dropdown-user-details-name"><?= user()->username;?></div>
+                                <div class="dropdown-user-details-email"><?= user()->email;?></div>
+                            </div>
                         </h6>
-                        <!-- Example Alert 1-->
-                        <a class="dropdown-item dropdown-notifications-item" href="#!">
-                            <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">my profile</div>
-                            </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#!">
+                            <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
+                            Account
                         </a>
-                        <a class="dropdown-item dropdown-notifications-item" href="#!">
-                            <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">reset password</div>
-                            </div>
-                        </a>
-                        <!-- Example Alert 2-->
-                        <a class="dropdown-item dropdown-notifications-item" href="<?= url_to('logout');?>">
-                            <div class="dropdown-notifications-item-icon bg-info"><i data-feather="bar-chart"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                               <div class="dropdown-notifications-item-content-text">Logout</div>
-                            </div>
+                        <a class="dropdown-item" href="<?= url_to('logout');?>">
+                            <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
+                            Logout
                         </a>
                     </div>
                 </li>

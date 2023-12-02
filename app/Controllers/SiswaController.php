@@ -4,14 +4,17 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\SiswaModel;
+use App\Models\GuruModel;
 use App\Libraries\DataTables;
 
 class SiswaController extends BaseController
 {
     protected $siswa;
+    protected $guru;
     protected $DataTables;
     public function __construct(){
         $this->siswa = new SiswaModel();
+        $this->guru       = new GuruModel();
         $this->DataTables = new DataTables();
     }
     public function index()
@@ -20,15 +23,32 @@ class SiswaController extends BaseController
         return  view('content/siswa/index', $data);
     }
     public function get_data_siswa(){
-         $query = "SELECT a.*,b.kelas,b.fase from siswa a 
-                    left join kelas b on b.id_kelas=a.id_kelas";
-         $where  = array('a.id_sekolah' => user()->id_sekolah);
-        //  $where  = null; 
-         // jika memakai IS NULL pada where sql
-         $isWhere = null;
-         // $isWhere = 'artikel.deleted_at IS NULL';
-         $search = array('a.nama');
-         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        if (in_groups('Guru') || in_groups('guru') || in_groups('Wali Kelas') || in_groups('Wali kelas') || in_groups('wali kelas')):
+            $idguru = $this->guru->where('user_id',user()->id)->first();
+            if ($idguru !=null){
+                $id_guru = $idguru['id_guru'];
+            }else{
+                $id_guru = null;
+            }
+            // dd(user()->id_sekolah);
+            $query = "SELECT DISTINCT a.*,b.kelas,b.fase from siswa a 
+                      left join kelas b on b.id_kelas=a.kelas_aktif
+                      LEFT JOIN tbl_jadwal c
+                      ON c.id_kelas=b.id_kelas
+                      LEFT JOIN data_guru d 
+                      ON d.id_guru=c.id_guru";
+            $where  = array('a.id_sekolah' => user()->id_sekolah,'d.id_guru' => $id_guru);
+            $isWhere = null;
+            $search = array('a.nama');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        else :
+            $query = "SELECT a.*,b.kelas,b.fase from siswa a 
+                        left join kelas b on b.id_kelas=a.id_kelas";
+            $where  = array('a.id_sekolah' => user()->id_sekolah);
+            $isWhere = null;
+            $search = array('a.nama');
+            echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        endif;
     }
     public function create_siswa(){
         $id_sekolah     = user()->id_sekolah;

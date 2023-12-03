@@ -11,7 +11,11 @@ use App\Models\PelajaranModel;
 
 class BebanMengajarController extends BaseController
 {
-    protected $eskul;
+    protected $beban;
+    protected $mapel;
+    protected $guru;
+    protected $kelas;
+    protected $DataTables;
     public function __construct(){
         $this->beban       = new BebanMengajarModel();
         $this->mapel       = new PelajaranModel();
@@ -40,7 +44,10 @@ class BebanMengajarController extends BaseController
                         LEFT JOIN data_guru b ON b.id_guru = a.id_guru
                         LEFT JOIN setup_pelajaran c ON c.id_pelajaran = a.id_pelajaran
                         LEFT JOIN kelas d ON d.id_kelas = a.id_kelas";
-            $where  =  array('b.id_guru' => $id_guru,'b.id_sekolah' => user()->id_sekolah,'d.id_sekolah'=>user()->id_sekolah); 
+            $where  =  array('b.id_guru' => $id_guru,
+                                'b.id_sekolah' => user()->id_sekolah,
+                                'd.id_sekolah'=>user()->id_sekolah,
+                                'a.status_jadwal'=>'Y'); 
             $isWhere = null;
             $search = array('nama_pelajaran','nama_guru');
             echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);

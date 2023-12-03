@@ -23,7 +23,7 @@
                 <!-- Sidenav Menu Heading (Core)-->
                 <div class="sidenav-menu-heading"></div>
                 <!-- Sidenav Accordion (Dashboard)-->
-                <a class="nav-link text-light fw-bold" href="javascript:void(0);">
+                <a class="nav-link text-light fw-bold" href="<?= url_to('/');?>">
                     <div class="nav-link-icon"><i data-feather="activity"></i></div>
                     Dashboards
                 </a>
@@ -52,7 +52,8 @@
                 </a>
                 <?php endif;?>
                 <?php if(has_permission('pindah kelas')): ?>
-                <a class="nav-link text-light fw-bold" href="<?= base_url('pindah-kelas');?>">
+                <!-- <a class="nav-link text-light fw-bold" href="<?= base_url('pindah-kelas');?>"> -->
+                <a class="nav-link text-light fw-bold" href="#">
                     <div class="nav-link-icon"><i data-feather="rotate-cw"></i></div>
                     Pindah Kelas
                 </a>
@@ -83,18 +84,18 @@
                 <?php endif;?>
                 <div class="sidenav-menu-heading text-small">Extrakulikuler</div>
                 <!-- Sidenav Link (Charts)-->
-                <?php //if(has_permission('ekstrakurikuler')): ?>
+                <?php if(has_permission('ekstrakurikuler')): ?>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('get-ekskul')?>">
                     <div class="nav-link-icon"><i data-feather="box"></i></div>
                     Ekstrakurikuler
                 </a>
-                <?php //endif;?>
-                <?php //if(has_permission('nilai ekstrakurikuler')): ?>
+                <?php endif;?>
+                <?php if(has_permission('nilai ekstrakurikuler')): ?>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('get-nilai-ekskul')?>">
                     <div class="nav-link-icon"><i data-feather="send"></i></div>
                     Nilai Ekstrakurikuler
                 </a>
-                <?php //endif;?>
+                <?php endif;?>
                 <?php if(has_permission('dimensi')): ?>
                 <div class="sidenav-menu-heading text-small">Profile P5</div>
                 <a class="nav-link text-light fw-bold" href="<?= url_to('reset-password')?>">
@@ -122,7 +123,7 @@
                 <?php endif;?>
                 <?php if(has_permission('asesmen')): ?>
                 <div class="sidenav-menu-heading text-small">Guru</div>
-                <a class="nav-link text-light fw-bold" href="<?= url_to('reset-password')?>">
+                <a class="nav-link text-light fw-bold" href="<?= url_to('asesmen')?>">
                     <div class="nav-link-icon"><i data-feather="edit"></i></div>
                     Asesmen
                 </a>

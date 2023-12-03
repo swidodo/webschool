@@ -92,10 +92,12 @@ class AuthPermissionController extends BaseController
     }
     public function get_group_permission(){
         $id = $this->request->getVar('id');
-        $query = "select a.*,b.* from auth_permissions a 
-                  left join auth_groups_permissions b
-                  ON a.id = b.permission_id";
-        $where =null;
+        $query = "SELECT  a.*,
+                (SELECT group_id from auth_groups_permissions where group_id = $id and permission_id=a.id) as group_id, 
+                (SELECT permission_id from auth_groups_permissions where group_id = $id and permission_id=a.id) as permission_id 
+                from auth_permissions a";
+        // $where = array('group_id'=>$id);
+        $where = null;
         $isWhere = null;
         $search = array('a.name');
         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);

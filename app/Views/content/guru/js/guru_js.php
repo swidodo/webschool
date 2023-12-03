@@ -62,7 +62,7 @@
                                 data : 'id_guru', 
                                 sortable: false,
                                 render :function( data, type, row, meta ) {
-                                            return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 btn-sm edit-guru" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm delete-guru" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div><a href="javascript:void(0);" class="btn btn-warning btn-sm reset-password me-1 mt-1" data-id="'+data+'"><i class="fa fa-reset"></i>Reset Password</a>';
+                                            return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 btn-sm fs-6 edit-guru" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm fs-6 delete-guru" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div><a href="javascript:void(0);" class="btn btn-warning btn-sm fs-6 reset-password me-1 mt-1" data-id="'+data+'"><i class="fa fa-reset me-1"></i>Reset Password</a>';
                                         },
                                 className : "dt-center",
                                 },           

@@ -36,7 +36,7 @@ class UserController extends BaseController
         $search = array('b.nama_guru','a.username','c.nama_sekolah');
         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
     }
-    public function change_password(){
+    public function guru_change_password(){
         $user_id  = $this->request->getVar('user_id');
         $pass_old = $this->request->getVar('pass_old');
         $pass_new = $this->request->getVar('pass_new');
@@ -67,6 +67,49 @@ class UserController extends BaseController
         }
         return $this->response->setJSON($res);  
     }
+    public function user_setting_password(){
+        $data['page'] = "UBAH PASHWOORD";
+        return view('content/auth/ubah_password',$data);
+    }
+    public function account_change_password(){
+        $email    = $this->request->getVar('email');
+        $pass_old = $this->request->getVar('pass_lama');
+        $pass_new = $this->request->getVar('pass_baru');
+
+        $user = $this->user->where('email',$email)->first();
+        if ($user['email'] ==""){
+            $res = [
+                'status' => 'error',
+                'msg'    => 'Akses Tidak Diperbolehkan!'
+            ];
+            return $this->response->setJSON($res);
+        }
+        $pwd_verify = password_verify(base64_encode(hash('sha384',$pass_old, true)), $user['password_hash']);
+        if (! $pwd_verify) {
+            $res = [
+                'status' => 'error',
+                'msg'    => 'Password Lama Salah!'
+            ];
+            return $this->response->setJSON($res);
+        }
+        $data = [
+            'password_hash'  => password_hash(base64_encode(hash('sha384',$pass_new, true)), PASSWORD_BCRYPT),          
+        ];
+        $update = $this->user->update($user['id'],$data);
+        if ($update){
+            $res = [
+                'status' => 'success',
+                'msg'    => 'Password berhasil diubah !'
+            ];
+        }else{
+            $res = [
+                'status' => 'error',
+                'msg'    => 'Password gagal diubah !'
+            ];
+        }
+        return $this->response->setJSON($res);  
+    }
+
     public function destroy(){
         $id = $this->request->getVar('id');
         $del = $this->user->delete($id);

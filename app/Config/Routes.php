@@ -106,9 +106,21 @@ $routes->post('save-beban-mengajar','BebanMengajarController::store');
 $routes->post('edit-beban-mengajar','BebanMengajarController::edit');
 $routes->post('update-beban-mengajar','BebanMengajarController::update');
 $routes->post('delete-beban-mengajar','BebanMengajarController::destroy');
+// data asesmen
+$routes->get('asesmen','AsesmenController::index');
+$routes->post('data-asesmen','AsesmenController::get_data');
+$routes->get('input-sumatif-harian','AsesmenController::get_setNilai_sumatif');
+$routes->get('input-sumatif-akhir-semester','AsesmenController::get_setNilai_sumatif');
+// Rapor
+$routes->get('rapor','RaporController::index');
+$routes->post('get-data-rapor','RaporController::get_data_rapor');
+$routes->get('cover','RaporController::get_data_kelas');
+$routes->get('identitas','RaporController::get_data_kelas');
 
 // setting Auth 
-$routes->post('ubah-password','UserController::change_password');
+$routes->post('ubah-password','UserController::guru_change_password');
+$routes->get('user-setting-password','UserController::user_setting_password');
+$routes->post('user-ubah-password','UserController::account_change_password');
 // group access
 $routes->get('group-access','GroupAccessController::index');
 $routes->post('data-group-access','GroupAccessController::get_data');
@@ -138,10 +150,6 @@ $routes->get('user','UserController::index');
 $routes->post('get-user','UserController::get_user');
 $routes->post('delete-user','UserController::destroy');
 
-// Rapor
-$routes->get('rapor','RaporController::index');
-$routes->post('get-data-rapor','RaporController::get_data_rapor');
-$routes->get('cover','RaporController::get_data_kelas');
-$routes->get('identitas','RaporController::get_data_kelas');
+
 
 

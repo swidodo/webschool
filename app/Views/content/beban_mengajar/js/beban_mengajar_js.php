@@ -52,7 +52,7 @@
                     data : 'id_jadwal', 
                     sortable: false,
                     render :function( data, type, row, meta ) {
-                                return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 btn-sm edit-beban-mengajar" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm delete-beban-mengajar" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
+                                return '<div class="d-flex justify-content-center"><a href="javascript:void(0);" class="btn btn-success me-1 fs-6 btn-sm edit-beban-mengajar" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-danger btn-sm fs-6 delete-beban-mengajar" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
                             },
                     className : "dt-center",
                     },           

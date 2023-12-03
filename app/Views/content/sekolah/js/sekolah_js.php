@@ -60,7 +60,7 @@
                         "sortable": false,
                         "render": 
                         function( data, type, row, meta ) {
-                            return '<a href="javascript:void(0);" class="btn btn-success me-1 btn-sm edit-sekolah d-flex justify-content-centar" data-id="'+data+'"><span class="fa fa-edit"></span>edit</a>';
+                            return '<a href="javascript:void(0);" class="btn btn-success me-1 btn-sm fs-6 edit-sekolah d-flex justify-content-centar" data-id="'+data+'"><span class="fa fa-edit"></span></a>';
                         }
                     },
                 ],

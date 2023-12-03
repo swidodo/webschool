@@ -31,14 +31,14 @@
                                 data :null, 
                                 sortable: false,
                                 render :function( data, type, row, meta ) {
-                                            return `<a href="javascript:void(0);" class="btn btn-success me-1 btn-sm mt-1 cover" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa-solid fa-print"></i> Cover</a>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm mt-1 identitas" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa fa-print me-1"></i> identitas sekolah</a>
-                                            <a href="javascript:void(0);" class="btn btn-success btn-sm mt-1 siswa" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa fa-print me-1"></i> Data Siswa</a>
-                                            <a href="javascript:void(0);" class="btn btn-warning btn-sm mt-1 mid-semester" data-id="'+data+'"><i class="fa fa-print me-1"></i> Mid Semester</a>
-                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 semester-hal1" data-id="'+data+'"><i class="fa fa-print me-1"></i> Semester Hal 1</a>
-                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 semester-hal2" data-id="'+data+'"><i class="fa fa-print me-1"></i> Semester Hal 2</a>
-                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-1 raporp5" data-id="'+data+'"><i class="fa fa-print me-1"></i> Rapor P5</a>
-                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 ledger" data-id="'+data+'"><i class="fa fa-print me-1"></i> Ledger</a>`;
+                                            return `<a href="javascript:void(0);" class="btn btn-success me-1 btn-sm mt-1 fs-6 cover" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa-solid fa-print me-1"></i> Cover</a>
+                                            <a href="javascript:void(0);" class="btn btn-success btn-sm mt-1 fs-6 identitas" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa fa-print me-1"></i> Identitas sekolah</a>
+                                            <a href="javascript:void(0);" class="btn btn-success btn-sm mt-1 fs-6 siswa" kelasid="`+data.id_kelas+`" tahun="`+data.tahun_pelajaran+`" smt="`+data.semester+`"><i class="fa fa-print me-1"></i> Data Siswa</a>
+                                            <a href="javascript:void(0);" class="btn btn-warning btn-sm mt-1 fs-6 mid-semester" data-id="'+data+'"><i class="fa fa-print me-1"></i> Mid Semester</a>
+                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 fs-6 semester-hal1" data-id="'+data+'"><i class="fa fa-print me-1"></i> Semester Hal 1</a>
+                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 fs-6 semester-hal2" data-id="'+data+'"><i class="fa fa-print me-1"></i> Semester Hal 2</a>
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm mt-1 fs-6 raporp5" data-id="'+data+'"><i class="fa fa-print me-1"></i> Rapor P5</a>
+                                            <a href="javascript:void(0);" class="btn btn-info btn-sm mt-1 fs-6 ledger" data-id="'+data+'"><i class="fa fa-print me-1"></i> Ledger</a>`;
                                         },
                                 className : "dt-right",
                                 },           

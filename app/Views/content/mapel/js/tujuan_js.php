@@ -48,7 +48,7 @@
                                 data : 'id_tp', 
                                 sortable: false,
                                 render :function( data, type, row, meta ) {
-                                            return '<a href="javascript:void(0);" class="btn btn-primary me-1 btn-sm edit-tujuan" data-id="'+data+'"><i class="fa-solid fa-pen-to-square"></i></a><a href="javascript:void(0);" class="btn btn-danger delete-tujuan" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
+                                            return '<a href="javascript:void(0);" class="btn btn-primary me-1 btn-sm fs-6 edit-tujuan" data-id="'+data+'"><i class="fa-solid fa-pen-to-square me-1"></i></a><a href="javascript:void(0);" class="btn btn-danger delete-tujuan btn-sm fs-6" data-id="'+data+'"><div class="d-flex justify-content-center"><i class="fa fa-import me-1"></i> <i class="fa fa-trash"></i></div></a></div>';
                                         },
                                 className : "dt-center",
                                 },           

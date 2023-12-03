@@ -66,5 +66,24 @@ class SiswaModel extends Model
                             ->where('siswa.id_siswa',$id)
                             ->get()->getRow();
     }
+    public function get_siswaBykelas($id_kelas,$id_mapel,$id_sekolah){
+        return $this->siswa->select('siswa.*,
+                                    tbl_nilai.nilai_harian1,
+                                    tbl_nilai.nilai_harian2,
+                                    tbl_nilai.nilai_harian3,
+                                    tbl_nilai.nilai_harian4,
+                                    tbl_nilai.uas,
+                                    tbl_nilai.rapor,
+                                    ')
+                            ->join('kelas','kelas.id_kelas=siswa.kelas_aktif','left')
+                            ->join('tbl_nilai','tbl_nilai.id_siswa = siswa.id_siswa','left')
+                            ->join('setup_pelajaran','setup_pelajaran.id_pelajaran = tbl_nilai.id_pelajaran','left')
+                            ->where('kelas.id_sekolah',$id_sekolah)
+                            ->where('kelas.id_kelas',$id_kelas)
+                            ->where('setup_pelajaran.id_pelajaran',$id_mapel)
+                            ->orderBy('siswa.nama','ASC')
+                            ->get()
+                            ->getResult();
+    }
 
 }

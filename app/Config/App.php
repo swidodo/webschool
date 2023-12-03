@@ -16,8 +16,8 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'https://localhost/app_school';
-    // public string $baseURL = 'https://codeeldiv.my.id/';
+    // public string $baseURL = 'https://localhost/app_school';
+    public string $baseURL = 'https://codeeldiv.my.id/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

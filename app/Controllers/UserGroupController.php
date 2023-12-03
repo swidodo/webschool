@@ -23,10 +23,21 @@ class UserGroupController extends BaseController
     public function index()
     {
         $data['page']       = 'USER GROUP';
-        $data['sekolah']    = $this->sekolah->findAll();
+        if (in_groups('administrator') || in_groups('Administrator')){
+            $data['sekolah']    = $this->sekolah->findAll();
+        }else{
+            $data['sekolah']    = $this->sekolah->where('id',user()->id_sekolah)->FindAll();
+        }
+        
         return view('content/auth/user_group',$data);
     }
     public function get_data(){
+        if (in_groups('administrator') || in_groups('Administrator')){
+            $idSekolah = $this->request->getVar('id_sekolah');
+        }else{
+            $idSekolah = user()->id_sekolah;
+        }
+        
         $query = "select a.*, c.name as role, d.nama_guru as nama
                 FROM auth_groups_users a 
                 LEFT JOIN users b 
@@ -35,7 +46,7 @@ class UserGroupController extends BaseController
                 ON c.id = a.group_id
                 LEFT JOIN data_guru d
                 ON d.user_id = b.id";
-        $where =null;
+        $where = array('d.id_sekolah' => $idSekolah);
         $isWhere = null;
         $search = array('name','nama_guru');
         echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);

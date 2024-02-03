@@ -23,16 +23,15 @@ class UserGroupController extends BaseController
     public function index()
     {
         $data['page']       = 'USER GROUP';
-        if (in_groups('administrator') || in_groups('Administrator')){
+        if (in_groups('Superadmin') || in_groups('Superadmin')){
             $data['sekolah']    = $this->sekolah->findAll();
         }else{
             $data['sekolah']    = $this->sekolah->where('id',user()->id_sekolah)->FindAll();
         }
-        
         return view('content/auth/user_group',$data);
     }
     public function get_data(){
-        if (in_groups('administrator') || in_groups('Administrator')){
+        if (in_groups('Superadmin') || in_groups('Superadmin')){
             $idSekolah = $this->request->getVar('id_sekolah');
         }else{
             $idSekolah = user()->id_sekolah;
